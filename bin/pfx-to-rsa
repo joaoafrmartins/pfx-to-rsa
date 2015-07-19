@@ -1,0 +1,16 @@
+#!/usr/bin/env coffee
+require 'shelljs/global'
+
+minimist = require 'minimist'
+
+args = minimist process.argv.slice 2
+
+{ pfx, out, password } = args
+
+if not out then throw new Error "invalid out filepath #{out}"
+
+if not pfx or not test "-e", pfx then throw new Error "invalid pfx filepath #{pfx}"
+
+if not password then throw new Error "invalid password #{password}"
+
+exec "openssl pkcs12 -in #{pfx} -nocerts -nodes -passin pass:#{password} | openssl rsa -out #{out}"

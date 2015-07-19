@@ -1,0 +1,8 @@
+{
+  "name": "pfx-to-rsa",
+  "version": "1.0.0",
+  "description": "",
+  "bin": "bin/pfx-to-rsa",
+  "author": "João Afonso Martins",
+  "license": "MIT"
+}
